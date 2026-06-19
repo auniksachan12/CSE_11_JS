@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Clone - Pure Client-Side</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <header>
+        <div class="nav-top">
+            <div class="nav-left">
+                <div class="nav-logo">amazon</div>
+                <div class="nav-delivery">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <p class="text-light">Deliver to</p>
+                        <p class="text-bold">United States</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-fill">
+                <div class="search-container">
+                    <select id="category-select" class="search-dropdown">
+                        <option value="all">All Departments</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="fashion">Fashion</option>
+                        <option value="home">Home & Kitchen</option>
+                    </select>
+                    <input type="text" id="main-search" class="search-input" placeholder="Search Amazon...">
+                    <button id="search-btn" class="search-button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <div class="nav-link">
+                    <p class="text-light">Hello, Sign in</p>
+                    <p class="text-bold">Account & Lists <i class="fa-solid fa-caret-down"></i></p>
+                </div>
+                <div class="nav-link">
+                    <p class="text-light">Returns</p>
+                    <p class="text-bold">& Orders</p>
+                </div>
+                <div class="nav-cart-btn" id="cart-icon-trigger">
+                    <div class="cart-icon-wrapper">
+                        <span id="global-cart-count">0</span>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <span class="text-bold cart-label">Cart</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-bottom-bar">
+            <ul>
+                <li class="active-nav-filter" data-filter="all"><i class="fa-solid fa-bars"></i> All Products</li>
+                <li data-filter="electronics">Electronics</li>
+                <li data-filter="fashion">Fashion</li>
+                <li data-filter="home">Home & Kitchen</li>
+                <li>Registry</li>
+                <li>Gift Cards</li>
+                <li>Sell</li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="hero-wrapper">
+        <div class="hero-slider">
+            <div class="slide active-slide" style="background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_45M_v2_1x._CB432458380_.jpg');"></div>
+        </div>
+    </div>
+
+    <div class="dashboard-filter-bar">
+        <span id="results-count-text">Loading product options...</span>
+        <div class="sort-wrapper">
+            <label for="sort-select">Sort by:</label>
+            <select id="sort-select">
+                <option value="featured">Featured</option>
+                <option value="low-high">Price: Low to High</option>
+                <option value="high-low">Price: High to Low</option>
+            </select>
+        </div>
+    </div>
+
+    <main class="main-layout-container">
+        <section class="products-showcase-grid" id="dynamic-products-render">
+            </section>
+    </main>
+
+    <div class="sidebar-drawer-overlay" id="drawer-overlay"></div>
+    <aside class="cart-sidebar-drawer" id="cart-drawer">
+        <div class="drawer-header">
+            <h3>Shopping Cart</h3>
+            <button id="close-drawer-btn">&times;</button>
+        </div>
+        <div class="drawer-body-items" id="drawer-items-list">
+            </div>
+        <div class="drawer-checkout-footer">
+            <div class="subtotal-row">
+                <span>Subtotal (<span id="drawer-items-count">0</span> items):</span>
+                <span class="subtotal-amount">$<span id="drawer-total-cash">0.00</span></span>
+            </div>
+            <button class="amazon-yellow-btn checkout-action-btn">Proceed to checkout</button>
+        </div>
+    </aside>
+
+    <script src="script.js"></script>
+</body>
+</html>
